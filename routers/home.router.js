@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router()
 
-router.get('/', (req, res) => {
-    res.status(200).json({success: true, message: 'Response from the server'});
+router.get('/profile', (req, res) => {
+    res.status(200).json({success: true, message: `Welcome ${req.user.email} `, user: req.user});
 })
 
 

@@ -27,3 +27,16 @@ exports.signinSchema = Joi.object({
         .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)
         .message('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit')
 })
+
+exports.verifyCodeSchema = Joi.object({
+    email: Joi.string()
+        .min(5)
+        .required()
+        .max(70)
+        .email(),
+    providedCode: Joi.string()
+                    .max(6)
+                    .required()
+                    
+            
+})  
