@@ -7,7 +7,7 @@ const router = express.Router()
 router.post('/signup', authController.signup);
 router.post('/login', authController.login);
 router.post('/logout', authenticateToken ,authController.logout);
-router.patch('/send_verification_code', authenticateToken ,authController.sendVerificationCode);
+router.patch('/send_verification_code', authenticateToken ,authController.sendVerificationCode); 
 router.patch('/verify_verification_code', authenticateToken ,authController.verifyVerificationCode);
 
 module.exports = router;
