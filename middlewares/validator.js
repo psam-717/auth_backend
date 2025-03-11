@@ -51,3 +51,20 @@ exports.changePasswordSchema = Joi.object({
     .message('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit'),
 
 })
+
+exports.verifyForgotPasswordCodeSchema = Joi.object({
+    email: Joi.string()
+                .min(5)
+                .required()
+                .max(70)
+                .email(),
+    forgotPasswordCode : Joi.string()
+                            .max(6)
+                            .required(),
+    newPassword: Joi.string()
+                    .required()
+                    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)
+                    .message('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit')
+
+
+})
