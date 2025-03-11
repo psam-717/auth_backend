@@ -36,7 +36,18 @@ exports.verifyCodeSchema = Joi.object({
         .email(),
     providedCode: Joi.string()
                     .max(6)
-                    .required()
-                    
-            
+                    .required()           
 })  
+
+
+exports.changePasswordSchema = Joi.object({
+    oldPassword: Joi.string()
+                    .required()
+                    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)
+                    .message('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit'),
+    newPassword: Joi.string()
+    .required()
+    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)
+    .message('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit'),
+
+})
