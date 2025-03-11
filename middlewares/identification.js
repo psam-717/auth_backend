@@ -36,6 +36,8 @@ exports.authenticateToken = (req, res, next) => {
         req.user = jwtVerified;
         next();
 
+        console.log(req.user)
+
     } catch (error) {
         if(error.name === 'TokenExpiredError'){
             return res.status(401).json({success: false, message: 'Token is expired'});
