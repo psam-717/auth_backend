@@ -17,6 +17,12 @@ const postSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
+    },
+    category: {
+        type: String,
+        required: [true, 'Category is required'],
+        trim: true,
+        index: true
     }
 }, {
     timestamps: true
