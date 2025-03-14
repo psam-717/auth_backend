@@ -323,7 +323,7 @@ exports.verifyForgotPasswordCode = async (req, res) => {
 
 
             //hashing the new password
-            const hashed_Password = await hashPassword(newPassword)
+            const hashed_Password = await hashPassword(newPassword);
 
             existingUser.password = hashed_Password;
 
